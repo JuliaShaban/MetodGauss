@@ -59,7 +59,6 @@ void gaussMetod(vector<vector<double>>& matrix)
 }
 void vectorNev(vector<vector<double>>& A, vector<double>& B, vector<vector<double>>& matrix)
 {
-    setlocale(LC_ALL, "rus");
     int n = matrix.size();
     for (int i = 0; i < n; i++)
     {
@@ -69,7 +68,7 @@ void vectorNev(vector<vector<double>>& A, vector<double>& B, vector<vector<doubl
             B[i] += A[i][j] * matrix[j][n];
         }
     }
-    cout << "Вектор невязки:" << endl;
+    cout << "Vec nev:" << endl;
     double vecNev = 0.0;
 
     for (int i = 0; i < n; i++)
@@ -80,5 +79,5 @@ void vectorNev(vector<vector<double>>& A, vector<double>& B, vector<vector<doubl
     {
         vecNev = max(vecNev, abs(B[i]));
     }
-    cout << "Норма =" << vecNev << endl;
+    cout << "Norm =" << vecNev << endl;
 }
