@@ -59,13 +59,14 @@ void gaussMetod(vector<vector<double>>& matrix)
 }
 void vectorNev(vector<vector<double>>& A, vector<double>& B, vector<vector<double>>& matrix)
 {
+    setlocale(LC_ALL, "rus");
     int n = matrix.size();
     for (int i = 0; i < n; i++)
     {
 
         for (int j = 0; j < n; j++)
         {
-            B[i] -= A[i][j] * matrix[j][n];
+            B[i] += A[i][j] * matrix[j][n];
         }
     }
     cout << "Вектор невязки:" << endl;
