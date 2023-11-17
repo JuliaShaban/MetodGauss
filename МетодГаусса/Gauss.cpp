@@ -19,7 +19,6 @@ void gaussMetod(vector<vector<double>>& matrix)
 
     for (int i = 0; i < n; i++)
     {
-        // Опорный элемент
         int elem = i;
         for (int j = i + 1; j < n; j++)
         {
@@ -29,13 +28,11 @@ void gaussMetod(vector<vector<double>>& matrix)
             }
         }
 
-        // меняем местами 
         if (elem != i)
         {
             swap(matrix[i], matrix[elem]);
         }
 
-        // диаг. эл. равен  1
         double KoffDel = matrix[i][i];
 
         for (int j = i; j < n + 1; j++)
@@ -57,9 +54,10 @@ void gaussMetod(vector<vector<double>>& matrix)
         }
     }
 }
-void vectorNev(vector<vector<double>>& A, vector<double>& B, vector<vector<double>>& matrix)
+void vectorNev(const vector<vector<double>>& A, vector<double>& B,const vector<vector<double>>& matrix)
 {
     int n = matrix.size();
+    vector<double> residualVector(n, 0);
     for (int i = 0; i < n; i++)
     {
 
@@ -67,6 +65,7 @@ void vectorNev(vector<vector<double>>& A, vector<double>& B, vector<vector<doubl
         {
             B[i] += A[i][j] * matrix[j][n];
         }
+        residualVector[i] -= B[i];
     }
     cout << "Vec nev:" << endl;
     double vecNev = 0.0;

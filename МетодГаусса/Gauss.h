@@ -6,4 +6,4 @@ using namespace std;
 
 void printMatrix(const vector<vector<double>>& matrix);
 void gaussMetod(vector<vector<double>>& matrix);
-void vectorNev(vector<vector<double>>& B, vector<double>& A, vector<vector<double>>& matrix);
+void vectorNev(const vector<vector<double>>& A, vector<double>& B,const vector<vector<double>>& matrix);
