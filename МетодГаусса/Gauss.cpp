@@ -63,7 +63,7 @@ void vectorNev(const vector<vector<double>>& A, vector<double>& B,const vector<v
 
         for (int j = 0; j < n; j++)
         {
-            B[i] += A[i][j] * matrix[j][n];
+            residualVector[i] += A[i][j] * matrix[j][n];
         }
         residualVector[i] -= B[i];
     }
@@ -72,11 +72,11 @@ void vectorNev(const vector<vector<double>>& A, vector<double>& B,const vector<v
 
     for (int i = 0; i < n; i++)
     {
-        cout << "v[" << i + 1 << "] = " << B[i] << endl;
+        cout << "v[" << i + 1 << "] = " << residualVector[i] << endl;
     }
     for (int i = 0; i < n; i++)
     {
-        vecNev = max(vecNev, abs(B[i]));
+        vecNev = max(vecNev, abs(residualVector[i]));
     }
     cout << "Norm =" << vecNev << endl;
 }
